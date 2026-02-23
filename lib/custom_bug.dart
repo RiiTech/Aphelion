@@ -715,101 +715,102 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
   }
 
   Widget _buildTargetInputCard() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.08),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white.withOpacity(0.04),
-                blurRadius: 10,
-                spreadRadius: 1,
-              ),
-            ],
-          ),
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Icon(
-                  FontAwesomeIcons.phone,
-                  color: Colors.white,
-                  size: 16,
-                ),
-              ),
-              const SizedBox(width: 10),
-              const Text(
-                "Target Number",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Orbitron',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          TextField(
-            controller: targetController,
-            style: const TextStyle(color: Colors.white, fontSize: 16),
-            cursorColor: Colors.white,
-            decoration: InputDecoration(
-              hintText: "e.g. +62xxxxxxxxx",
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
-              filled: true,
-              fillColor: Colors.white.withOpacity(0.1),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white.withOpacity(0.3)),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Color(0xFF4ADE80), width: 2),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              prefixIcon: Container(
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(
-                  FontAwesomeIcons.globe,
-                  color: Colors.white70,
-                  size: 16,
-                ),
-              ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(16),
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.08),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.white.withOpacity(0.2)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white.withOpacity(0.04),
+              blurRadius: 10,
+              spreadRadius: 1,
             ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            "Use international format without 0 or +",
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
-              fontSize: 11,
-              fontFamily: 'ShareTechMono',
-            ),
-          ),
-        ],
+          ],
         ),
-      ),
-    );
-  }
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    FontAwesomeIcons.phone,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                const Text(
+                  "Target Number",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Orbitron',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            TextField(
+              controller: targetController,
+              style: const TextStyle(color: Colors.white, fontSize: 16),
+              cursorColor: Colors.white,
+              decoration: InputDecoration(
+                hintText: "e.g. +62xxxxxxxxx",
+                hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+                filled: true,
+                fillColor: Colors.white.withOpacity(0.1),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white.withOpacity(0.3)),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF4ADE80), width: 2),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                prefixIcon: Container(
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Icon(
+                    FontAwesomeIcons.globe,
+                    color: Colors.white70,
+                    size: 16,
+                  ),
+                ),
+                contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "Use international format without 0 or +",
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.5),
+                fontSize: 11,
+                fontFamily: 'ShareTechMono',
+              ),
+            ),
+          ],
+        ),          // menutup Column
+      ),            // menutup Container
+    ),              // menutup BackdropFilter
+  );                // menutup ClipRRect
+}
 
   Widget _buildPayloadSelectionCard() {
     return ClipRRect(

@@ -1320,7 +1320,7 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
     );
   }
 
-  Widget _buildStatusIndicators() {
+Widget _buildStatusIndicators() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: BackdropFilter(
@@ -1334,45 +1334,45 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
             boxShadow: [
               BoxShadow(
                 color: Colors.white.withOpacity(0.04),
-            blurRadius: 10,
-            spreadRadius: 1,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "System Status",
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Orbitron',
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
-          const SizedBox(height: 14),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _statusIndicator(
-                icon: FontAwesomeIcons.server,
-                label: "Server",
-                isOnline: true,
-              ),
-              _statusIndicator(
-                icon: FontAwesomeIcons.shieldAlt,
-                label: "Security",
-                isOnline: true,
-              ),
-              _statusIndicator(
-                icon: FontAwesomeIcons.database,
-                label: "Database",
-                isOnline: true,
+                blurRadius: 10,
+                spreadRadius: 1,
               ),
             ],
           ),
-          ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "System Status",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Orbitron',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: 14),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _statusIndicator(
+                    icon: FontAwesomeIcons.server,
+                    label: "Server",
+                    isOnline: true,
+                  ),
+                  _statusIndicator(
+                    icon: FontAwesomeIcons.shieldAlt,
+                    label: "Security",
+                    isOnline: true,
+                  ),
+                  _statusIndicator(
+                    icon: FontAwesomeIcons.database,
+                    label: "Database",
+                    isOnline: true,
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

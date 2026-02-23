@@ -924,11 +924,11 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                 title: "Join Channel",
                 subtitle: "Get updates",
                 onTap: () async {
-                  final uri = Uri.parse("tg://resolve?domain=susanoolabs");
+                  final uri = Uri.parse("tg://resolve?domain=aphelionlabs");
                   if (await canLaunchUrl(uri)) {
                     await launchUrl(uri, mode: LaunchMode.externalApplication);
                   } else {
-                    await launchUrl(Uri.parse("https://t.me/susanoolabs"),
+                    await launchUrl(Uri.parse("https://t.me/aphelionlabs"),
                         mode: LaunchMode.externalApplication);
                   }
                 },

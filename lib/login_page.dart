@@ -228,11 +228,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
           if (showContact)
             TextButton.icon(
               onPressed: () async {
-                final uri = Uri.parse("tg://resolve?domain=Zenithoffc");
+                final uri = Uri.parse("tg://resolve?domain=iamrii");
                 if (await canLaunchUrl(uri)) {
                   await launchUrl(uri, mode: LaunchMode.externalApplication);
                 } else {
-                  await launchUrl(Uri.parse("https://t.me/Zenithoffc"),
+                  await launchUrl(Uri.parse("https://t.me/iamrii"),
                       mode: LaunchMode.externalApplication);
                 }
               },
@@ -276,11 +276,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   // Fungsi untuk membuka bot Telegram
   Future<void> _openTelegramBot() async {
-    final uri = Uri.parse("tg://resolve?domain=Zenithoffc");
+    final uri = Uri.parse("tg://resolve?domain=iamrii");
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      await launchUrl(Uri.parse("https://t.me/Zenithoffc"),
+      await launchUrl(Uri.parse("https://t.me/iamrii"),
           mode: LaunchMode.externalApplication);
     }
   }

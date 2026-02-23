@@ -471,21 +471,27 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
   }
 
   Widget _buildProgressIndicator() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
-      ),
-      child: Row(
-        children: [
-          _buildStepIndicator(0, "Input", FontAwesomeIcons.edit),
-          _buildProgressLine(),
-          _buildStepIndicator(1, "Process", FontAwesomeIcons.cogs),
-          _buildProgressLine(),
-          _buildStepIndicator(2, "Complete", FontAwesomeIcons.checkCircle),
-        ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.07),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.white.withOpacity(0.15)),
+          ),
+          child: Row(
+            children: [
+              _buildStepIndicator(0, "Input", FontAwesomeIcons.edit),
+              _buildProgressLine(),
+              _buildStepIndicator(1, "Process", FontAwesomeIcons.cogs),
+              _buildProgressLine(),
+              _buildStepIndicator(2, "Complete", FontAwesomeIcons.checkCircle),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -567,24 +573,28 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
   }
 
   Widget _buildUserInfoHeader() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.05),
-            blurRadius: 10,
-            spreadRadius: 1,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.05),
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Row(
-        children: [
-          // User avatar with glow effect
+          child: Row(
+            children: [
+              // User avatar with glow effect
           AnimatedBuilder(
             animation: _glowController,
             builder: (context, child) {
@@ -699,25 +709,31 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
           ),
         ],
       ),
+        ),
+      ),
     );
   }
 
   Widget _buildTargetInputCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.05),
-            blurRadius: 10,
-            spreadRadius: 1,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.04),
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Column(
+          child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -790,146 +806,219 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
             ),
           ),
         ],
+        ),
       ),
     );
   }
 
   Widget _buildPayloadSelectionCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.05),
-            blurRadius: 10,
-            spreadRadius: 1,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Icon(
-                  FontAwesomeIcons.bug,
-                  color: Colors.white,
-                  size: 16,
-                ),
-              ),
-              const SizedBox(width: 10),
-              const Text(
-                "Select Payloads",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Orbitron',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF4ADE80).withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  "${selectedBugs.length} selected",
-                  style: const TextStyle(
-                    color: Color(0xFF4ADE80),
-                    fontSize: 11,
-                    fontFamily: 'ShareTechMono',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.04),
+                blurRadius: 12,
+                spreadRadius: 1,
               ),
             ],
           ),
-          const SizedBox(height: 14),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: widget.listPayload.map((bug) {
-              final bugId = bug['bug_id'];
-              final bugName = bug['bug_name'];
-              final isSelected = selectedBugs.contains(bugId);
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      FontAwesomeIcons.bug,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    "Select Payloads",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Orbitron',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF4ADE80).withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: const Color(0xFF4ADE80).withOpacity(0.4),
+                        width: 1,
+                      ),
+                    ),
+                    child: Text(
+                      "${selectedBugs.length} ON",
+                      style: const TextStyle(
+                        color: Color(0xFF4ADE80),
+                        fontSize: 11,
+                        fontFamily: 'ShareTechMono',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 14),
+              // Switch list per payload
+              ...widget.listPayload.map((bug) {
+                final bugId = bug['bug_id'];
+                final bugName = bug['bug_name'];
+                final description = bug['description'];
+                final isSelected = selectedBugs.contains(bugId);
 
-              return FilterChip(
-                label: Text(bugName),
-                labelStyle: TextStyle(
-                  color: isSelected ? Colors.black : Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                ),
-                selected: isSelected,
-                onSelected: (_) => _toggleBugSelection(bugId),
-                backgroundColor: Colors.white.withOpacity(0.1),
-                selectedColor: const Color(0xFF4ADE80),
-                checkmarkColor: Colors.black,
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  side: BorderSide(
-                    color: isSelected ? const Color(0xFF4ADE80) : Colors.white.withOpacity(0.2),
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? const Color(0xFF4ADE80).withOpacity(0.12)
+                          : Colors.white.withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: isSelected
+                            ? const Color(0xFF4ADE80).withOpacity(0.5)
+                            : Colors.white.withOpacity(0.12),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        // Payload icon
+                        Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? const Color(0xFF4ADE80).withOpacity(0.2)
+                                : Colors.white.withOpacity(0.08),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Icon(
+                            FontAwesomeIcons.virus,
+                            color: isSelected ? const Color(0xFF4ADE80) : Colors.white54,
+                            size: 14,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        // Name & description
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                bugName,
+                                style: TextStyle(
+                                  color: isSelected ? const Color(0xFF4ADE80) : Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'ShareTechMono',
+                                ),
+                              ),
+                              if (description != null && description.toString().isNotEmpty)
+                                Text(
+                                  description.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.45),
+                                    fontSize: 10,
+                                    fontFamily: 'ShareTechMono',
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                            ],
+                          ),
+                        ),
+                        // Switch
+                        Transform.scale(
+                          scale: 0.85,
+                          child: Switch(
+                            value: isSelected,
+                            onChanged: (_) => _toggleBugSelection(bugId),
+                            activeColor: const Color(0xFF4ADE80),
+                            activeTrackColor: const Color(0xFF4ADE80).withOpacity(0.3),
+                            inactiveThumbColor: Colors.white38,
+                            inactiveTrackColor: Colors.white.withOpacity(0.12),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }).toList(),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              Icon(
-                FontAwesomeIcons.infoCircle,
-                color: Colors.white.withOpacity(0.5),
-                size: 12,
-              ),
-              const SizedBox(width: 6),
-              Expanded(
-                child: Text(
-                  "Select multiple payloads for a combined attack",
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.5),
-                    fontSize: 11,
-                    fontFamily: 'ShareTechMono',
+                );
+              }).toList(),
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.infoCircle,
+                    color: Colors.white.withOpacity(0.4),
+                    size: 11,
                   ),
-                ),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      "Toggle payloads for a combined attack",
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.4),
+                        fontSize: 11,
+                        fontFamily: 'ShareTechMono',
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
 
   Widget _buildSenderTypeCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.05),
-            blurRadius: 10,
-            spreadRadius: 1,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.04),
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
           Row(
             children: [
               Container(
@@ -1070,29 +1159,35 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
               ),
             ],
           ),
-        ],
+          ],
+          ),
+        ),
       ),
     );
   }
 
   Widget _buildQuantityDelayCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.05),
-            blurRadius: 10,
-            spreadRadius: 1,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.04),
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
           Row(
             children: [
               Container(
@@ -1219,20 +1314,26 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
               ),
             ),
         ],
+          ),
+        ),
       ),
     );
   }
 
   Widget _buildStatusIndicators() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.05),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.04),
             blurRadius: 10,
             spreadRadius: 1,
           ),
@@ -1271,7 +1372,9 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
               ),
             ],
           ),
-        ],
+          ],
+          ),
+        ),
       ),
     );
   }
@@ -1397,32 +1500,38 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
   }
 
   Widget _buildFooterInfo() {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
-      ),
-      child: Row(
-        children: [
-          Icon(
-            FontAwesomeIcons.exclamationTriangle,
-            color: Colors.white.withOpacity(0.5),
-            size: 14,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.05),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.white.withOpacity(0.12)),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              "Custom attack with multiple payloads. Use responsibly.",
-              style: TextStyle(
+          child: Row(
+            children: [
+              Icon(
+                FontAwesomeIcons.exclamationTriangle,
                 color: Colors.white.withOpacity(0.5),
-                fontSize: 11,
-                fontFamily: 'ShareTechMono',
+                size: 14,
               ),
-            ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  "Custom attack with multiple payloads. Use responsibly.",
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.5),
+                    fontSize: 11,
+                    fontFamily: 'ShareTechMono',
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

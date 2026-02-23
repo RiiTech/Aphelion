@@ -31,7 +31,7 @@ class _CustomAttackPageState extends State<CustomAttackPage> with TickerProvider
   final targetController = TextEditingController();
   final qtyController = TextEditingController(text: "5");
   final delayController = TextEditingController(text: "100");
-  static const String baseUrl = "https://ppl.nullxteam.fun";
+  static const String baseUrl = "https://tapops.fanzhosting.my.id";
 
   // Animation controllers
   late AnimationController _buttonController;

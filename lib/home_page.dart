@@ -372,12 +372,16 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
   }
 
   Widget _buildProgressIndicator() {
-    return Container(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withOpacity(0.07),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
+        border: Border.all(color: Colors.white.withOpacity(0.15)),
       ),
       child: Row(
         children: [
@@ -387,6 +391,8 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
           _buildProgressLine(),
           _buildStepIndicator(2, "Complete", FontAwesomeIcons.checkCircle),
         ],
+      ),
+        ),
       ),
     );
   }
@@ -468,11 +474,15 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
   }
 
   Widget _buildUserInfoHeader() {
-    return Container(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: Colors.white.withOpacity(0.08),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.white.withOpacity(0.2)),
         boxShadow: [
@@ -598,6 +608,8 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
           ),
         ],
       ),
+        ),
+      ),
     );
   }
 
@@ -615,10 +627,14 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
   }
 
   Widget _buildTargetInputCard() {
-    return Container(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: Colors.white.withOpacity(0.08),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.white.withOpacity(0.2)),
         boxShadow: [
@@ -703,14 +719,20 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
           ),
         ],
       ),
+        ),
+      ),
     );
   }
 
   Widget _buildPayloadTypeCard() {
-    return Container(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: Colors.white.withOpacity(0.08),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.white.withOpacity(0.2)),
         boxShadow: [
@@ -850,13 +872,19 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
           ),
         ],
       ),
+        ),
+      ),
     );
   }
   Widget _buildStatusIndicators() {
-    return Container(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: Colors.white.withOpacity(0.08),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.white.withOpacity(0.2)),
         boxShadow: [
@@ -901,6 +929,8 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
             ],
           ),
         ],
+      ),
+        ),
       ),
     );
   }
@@ -1026,12 +1056,16 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
   }
 
   Widget _buildFooterInfo() {
-    return Container(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.05),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
+        border: Border.all(color: Colors.white.withOpacity(0.12)),
       ),
       child: Row(
         children: [
@@ -1052,6 +1086,8 @@ class _AttackPageState extends State<AttackPage> with TickerProviderStateMixin {
             ),
           ),
         ],
+      ),
+        ),
       ),
     );
   }

@@ -47,11 +47,11 @@ class BuyAccountPage extends StatelessWidget {
                 style: TextStyle(color: Colors.lightBlueAccent)),
             onPressed: () async {
               Navigator.pop(context);
-              final uri = Uri.parse("tg://resolve?domain=Zenithoffc");
+              final uri = Uri.parse("tg://resolve?domain=iamrii");
               if (await canLaunchUrl(uri)) {
                 await launchUrl(uri, mode: LaunchMode.externalApplication);
               } else {
-                await launchUrl(Uri.parse("https://t.me/Zenithoffc"),
+                await launchUrl(Uri.parse("https://t.me/iamrii"),
                     mode: LaunchMode.externalApplication);
               }
             },
